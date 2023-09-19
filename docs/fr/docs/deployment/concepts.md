@@ -82,7 +82,7 @@ Si vous consultez le "gestionnaire de tâches" ou le "moniteur système" (ou des
 
 Par exemple, vous verrez probablement que plusieurs processus exécutent le même programme de navigation (Firefox, Chrome, Edge, etc.). Ils exécutent normalement un processus par onglet, plus quelques autres processus supplémentaires.
 
-<img class="shadow" src="/img/deployment/concepts/image01.png">
+<img class="shadow" src="../../../en/docs/img/deployment/concepts/image01.png">
 
 ---
 
@@ -151,7 +151,7 @@ Et pourtant, vous ne voudriez probablement pas que l'application reste morte par
 
 Mais dans les cas d'erreurs vraiment graves qui font planter le **processus** en cours d'exécution, vous voudriez un composant externe qui soit chargé de **redémarrer** le processus, au moins deux ou trois fois...
 
-! !! astuce
+!!! astuce
     ...Bien que si l'application entière **se plante immédiatement**, cela n'a probablement pas de sens de la redémarrer sans cesse. Mais dans ce cas, vous le remarquerez probablement pendant le développement, ou au moins juste après le déploiement.
 
     Concentrons-nous donc sur les cas principaux, où le système pourrait se bloquer entièrement dans certains cas particuliers **dans le futur**, et où il est toujours utile de le redémarrer.
@@ -213,7 +213,7 @@ Ce processus gestionnaire est probablement celui qui écoute sur le **port** de 
 
 Ces processus travailleurs seraient ceux qui exécutent votre application, ils effectueraient les principaux calculs pour recevoir une **requête** et renvoyer une **réponse**, et ils chargeraient tout ce que vous mettez dans les variables en RAM.
 
-<img src="/img/deployment/concepts/process-ram.svg">
+<img src="../../../en/docs/img/deployment/concepts/process-ram.svg">
 
 Et bien sûr, sur la même machine, d'autres **processus** sont probablement en cours d'exécution, en dehors de votre application.
 
@@ -238,10 +238,10 @@ Voici quelques combinaisons et stratégies possibles :
 * Les **services en nuage** qui s'en chargent pour vous
     * Le service en nuage va probablement **gérer la réplication pour vous**. Il vous permettra peut-être de définir **un processus à exécuter**, ou une **image de conteneur** à utiliser, dans tous les cas, il s'agira très probablement **d'un seul processus Uvicorn**, et le service cloud se chargera de le répliquer.
 
-! !! conseil
+!!! conseil
     Ne vous inquiétez pas si certains de ces éléments concernant les **conteneurs**, Docker ou Kubernetes n'ont pas encore beaucoup de sens.
 
-    Je vous en dirai plus sur les images de conteneurs, Docker, Kubernetes, etc. dans un prochain chapitre : [FastAPI in Containers - Docker](./docker.md){.internal-link target=_blank}.
+    Je vous en dirai plus sur les images de conteneurs, Docker, Kubernetes, etc. dans un prochain chapitre : [Déploiement - Déployer avec Docker](./docker.md){.internal-link target=_blank}.
 ## Étapes précédentes avant le démarrage
 
 Dans de nombreux cas, vous souhaitez effectuer certaines étapes **avant de démarrer** votre application.
@@ -256,7 +256,7 @@ Et vous devrez vous assurer que c'est un seul processus qui exécute ces étapes
 
 Bien sûr, il y a des cas où il n'y a pas de problème à exécuter les étapes précédentes plusieurs fois, dans ce cas, c'est beaucoup plus facile à gérer.
 
-! !! conseil
+!!! conseil
     Gardez également à l'esprit que, selon votre configuration, dans certains cas, vous **n'aurez même pas besoin d'étapes précédentes** avant de démarrer votre application.
 
     Dans ce cas, vous n'aurez pas à vous soucier de tout cela. 🤷
@@ -271,8 +271,8 @@ Voici quelques idées possibles :
 * Un script bash qui exécute les étapes précédentes et démarre ensuite votre application.
     * Vous auriez toujours besoin d'un moyen de démarrer/redémarrer *ce* script bash, de détecter les erreurs, etc.
 
-! !! astuce
-    Je vous donnerai des exemples plus concrets pour faire cela avec des conteneurs dans un prochain chapitre : [FastAPI in Containers - Docker](./docker.md){.internal-link target=_blank}.
+!!! astuce
+    Je vous donnerai des exemples plus concrets pour faire cela avec des conteneurs dans un prochain chapitre : [Déploiement - Déployer avec Docker](./docker.md){.internal-link target=_blank}.
 
 ## Utilisation des ressources
 
